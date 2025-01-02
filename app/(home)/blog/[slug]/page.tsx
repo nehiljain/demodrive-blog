@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { blog } from '@/lib/source';
@@ -29,12 +30,22 @@ export default async function Page(props: {
 
   return (
     <>
-      <div className="container rounded-xl border py-12 md:px-8">
+      <div className="container py-4 px-4">
+        {page.data.cover_image && (
+          <div className="relative mb-8 h-[720px] w-full overflow-hidden rounded-lg">
+            <Image
+              src={page.data.cover_image}
+              alt={`Cover image for ${page.data.title}`}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
         <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
         <p className="mb-4 text-fd-muted-foreground">{page.data.description}</p>
-        <Link href="/blog">Back</Link>
       </div>
-      <article className="container flex flex-col px-4 py-8">
+      <article className="container flex flex-col px-4">
         <div className="prose min-w-0">
           <InlineTOC items={page.data.toc} />
           <Mdx components={defaultMdxComponents} />
