@@ -1,5 +1,3 @@
 import { toRuntime, toRuntimeAsync } from "fumadocs-mdx"
-import * as docs_0 from "../content/docs/index.mdx?collection=docs&hash=4f3bc6e48351eef47611191451d86bf2ebc0c4238119c3a0c8870a549ef72ca3"
-import * as docs_1 from "../content/docs/test.mdx?collection=docs&hash=4f3bc6e48351eef47611191451d86bf2ebc0c4238119c3a0c8870a549ef72ca3"
-export const docs = [toRuntime("doc", docs_0, {"path":"index.mdx","absolutePath":"/Users/nehiljain/code/demodrive-blog/content/docs/index.mdx"}), toRuntime("doc", docs_1, {"path":"test.mdx","absolutePath":"/Users/nehiljain/code/demodrive-blog/content/docs/test.mdx"})];
-export const meta = [];
+import * as blogPosts_0 from "../content/blog/hello-world.mdx?collection=blogPosts&hash=c79356310b04dcb4cd5b02c5c85fa441ceee6b7c2bb6c07fc1d69aaabaac14d1"
+export const blogPosts = [toRuntime("doc", blogPosts_0, {"path":"hello-world.mdx","absolutePath":"/Users/nehiljain/code/demodrive-blog/content/blog/hello-world.mdx"})];
