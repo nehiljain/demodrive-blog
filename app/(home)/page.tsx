@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { blog } from '@/lib/source';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 
 export default function HomePage() {
   const posts = blog.getPages();
@@ -9,44 +10,54 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-5xl font-bold mb-6">Welcome to My Blog</h1>
-        <p className="text-xl text-fd-muted-foreground max-w-2xl mx-auto mb-8">
-          Exploring ideas, sharing stories, and documenting my journey through technology and life.
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          Insights on Content Analysis, Tools and AI in Documentation and Technical Content Creation
+        </p>
+        <p className="text-muted-foreground">
+          Want to write a guest article? Email us at founders@demodrive.tech
         </p>
       </section>
 
       {/* Featured Posts */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Latest Posts</h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
+        <div className={`grid gap-8 place-items-center ${
+          posts.length === 1 ? 'max-w-md mx-auto' :
+          posts.length === 2 ? 'md:grid-cols-2 max-w-3xl mx-auto' :
+          'md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto'
+        }`}>
+          {posts.slice(0, 3).map((post) => (
             <Link
               key={post.url}
               href={post.url}
-              className="group block bg-fd-secondary rounded-lg overflow-hidden transition-transform hover:-translate-y-1"
+              className="block w-full max-w-md group transition-transform hover:-translate-y-1"
             >
-              {post.data.image && (
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={post.data.image}
-                    alt={post.data.title}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              )}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary">
-                  {post.data.title}
-                </h3>
-                <p className="text-fd-muted-foreground mb-4">
-                  {post.data.description}
-                </p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-fd-muted-foreground">
+              <Card className="h-full">
+                {post.data.cover_image && (
+                  <div className="aspect-video relative overflow-hidden rounded-t-xl">
+                    <img
+                      src={post.data.cover_image}
+                      alt={post.data.title}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                )}
+                <CardHeader>
+                  <CardTitle className="group-hover:text-primary">
+                    {post.data.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    {post.data.description}
+                  </p>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground">
                     {new Date(post.data.date).toLocaleDateString()}
                   </span>
                   <span className="font-medium">{post.data.author}</span>
-                </div>
-              </div>
+                </CardFooter>
+              </Card>
             </Link>
           ))}
         </div>

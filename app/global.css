@@ -2,65 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+}
+
+html {
+  @apply dark;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 @layer base {
   :root {
-    /* Light theme */
-    --fd-background: 220 29% 94%;
-    --fd-foreground: 220 4% 38%;
-    
-    --fd-primary: 142 100% 35%;
-    --fd-primary-foreground: 0 0% 100%;
-    
-    --fd-secondary: 199 73% 55%;
-    --fd-secondary-foreground: 0 0% 100%;
-    
-    --fd-muted: 220 7% 83%;
-    --fd-muted-foreground: 220 4% 48%;
-    
-    --fd-accent: 34 100% 66%;
-    --fd-accent-foreground: 0 0% 100%;
-    
-    --fd-destructive: 0 65% 65%;
-    --fd-destructive-foreground: 0 0% 100%;
-    
-    --fd-border: 220 7% 83%;
-    --fd-input: 220 7% 83%;
-    --fd-ring: 199 73% 55%;
-    
+    /* Light theme colors based on Ayu Light */
+    --fd-background: 220 27% 9%;  /* #0b0e14 */
+    --fd-foreground: 210 17% 98%;  /* #f5f7fa */
+    --fd-card: 222 24% 11%;  /* #141821 */
+    --fd-card-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --fd-popover: 222 24% 11%;  /* #141821 */
+    --fd-popover-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --fd-primary: 84 54% 49%;  /* #aad94c */
+    --fd-primary-foreground: 0 0% 100%;  /* #ffffff */
+    --fd-secondary: 223 27% 10%;  /* #131721 */
+    --fd-secondary-foreground: 0 0% 100%;  /* #ffffff */
+    --fd-muted: 223 9% 25%;  /* #acb6bf8c */
+    --fd-muted-foreground: 220 8% 71%;  /* #acb6bf */
+    --fd-accent: 68 100% 40%;  /* #e6b450 */
+    --fd-accent-foreground: 220 29% 6%;  /* #ffffff */
+    --fd-destructive: 0 65% 65%;  /* #f07178 */
+    --fd-destructive-foreground: 0 0% 100%;  /* #ffffff */
+    --fd-border: 223 9% 25%;  /* #363c49 */
+    --fd-input: 223 9% 25%;  /* #363c49 */
+    --fd-ring: 39 100% 61%;  /* #ffb454 */
     --fd-radius: 0.5rem;
+
+
+    /* Dark theme colors based on Ayu Dark */
+    --background: 220 27% 9%;  /* #0b0e14 */
+    --foreground: 210 17% 98%;  /* #f5f7fa */
+    --card: 222 24% 11%;  /* #141821 */
+    --card-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --popover: 222 24% 11%;  /* #141821 */
+    --popover-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --primary: 84 54% 49%;  /* #aad94c */
+    --primary-foreground: 0 0% 100%;  /* #ffffff */
+    --secondary: 223 27% 10%;  /* #131721 */
+    --secondary-foreground: 0 0% 100%;  /* #ffffff */
+    --muted: 223 9% 25%;  /* #acb6bf8c */
+    --muted-foreground: 220 8% 71%;  /* #acb6bf */
+    --accent: 68 100% 40%;  /* #e6b450 */
+    --accent-foreground: 220 29% 6%;  /* #ffffff */
+    --destructive: 0 65% 65%;  /* #f07178 */
+    --destructive-foreground: 0 0% 100%;  /* #ffffff */
+    --border: 223 9% 25%;  /* #363c49 */
+    --input: 223 9% 25%;  /* #363c49 */
+    --ring: 39 100% 61%;  /* #ffb454 */
+
+    /* Chart colors from Ayu Dark */
+    --chart-1: 210 100% 65%;  /* #59c2ff */
+    --chart-2: 170 55% 68%;  /* #95e6cb */
+    --chart-3: 39 100% 61%;  /* #ffb454 */
+    --chart-4: 280 100% 70%;  /* #d2a6ff */
+    --chart-5: 24 89% 68%;  /* #f29668 */
   }
 
   .dark {
-    /* Dark theme */
-    --fd-background: 220 27% 9%;
-    --fd-foreground: 210 17% 98%;
-    
-    --fd-primary: 84 54% 49%;
-    --fd-primary-foreground: 0 0% 100%;
-    
-    --fd-secondary: 223 27% 10%;
-    --fd-secondary-foreground: 0 0% 100%;
-    
-    --fd-muted: 223 9% 25%;
-    --fd-muted-foreground: 220 8% 71%;
-    
-    --fd-accent: 68 100% 40%;
-    --fd-accent-foreground: 220 29% 6%;
-    
-    --fd-destructive: 0 65% 65%;
-    --fd-destructive-foreground: 0 0% 100%;
-    
-    --fd-border: 223 9% 25%;
-    --fd-input: 223 9% 25%;
-    --fd-ring: 39 100% 61%;
+    --fd-background: 220 27% 9%;  /* #0b0e14 */
+    --fd-foreground: 210 17% 98%;  /* #f5f7fa */
+    --fd-card: 222 24% 11%;  /* #141821 */
+    --fd-card-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --fd-popover: 222 24% 11%;  /* #141821 */
+    --fd-popover-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --fd-primary: 84 54% 49%;  /* #aad94c */
+    --fd-primary-foreground: 0 0% 100%;  /* #ffffff */
+    --fd-secondary: 223 27% 10%;  /* #131721 */
+    --fd-secondary-foreground: 0 0% 100%;  /* #ffffff */
+    --fd-muted: 223 9% 25%;  /* #acb6bf8c */
+    --fd-muted-foreground: 220 8% 71%;  /* #acb6bf */
+    --fd-accent: 68 100% 40%;  /* #e6b450 */
+    --fd-accent-foreground: 220 29% 6%;  /* #ffffff */
+    --fd-destructive: 0 65% 65%;  /* #f07178 */
+    --fd-destructive-foreground: 0 0% 100%;  /* #ffffff */
+    --fd-border: 223 9% 25%;  /* #363c49 */
+    --fd-input: 223 9% 25%;  /* #363c49 */
+    --fd-ring: 39 100% 61%;  /* #ffb454 */
+
+
+    /* Dark theme colors based on Ayu Dark */
+    --background: 220 27% 9%;  /* #0b0e14 */
+    --foreground: 210 17% 98%;  /* #f5f7fa */
+    --card: 222 24% 11%;  /* #141821 */
+    --card-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --popover: 222 24% 11%;  /* #141821 */
+    --popover-foreground: 34 5% 73%;  /* #bfbdb6 */
+    --primary: 84 54% 49%;  /* #aad94c */
+    --primary-foreground: 0 0% 100%;  /* #ffffff */
+    --secondary: 223 27% 10%;  /* #131721 */
+    --secondary-foreground: 0 0% 100%;  /* #ffffff */
+    --muted: 223 9% 25%;  /* #acb6bf8c */
+    --muted-foreground: 220 8% 71%;  /* #acb6bf */
+    --accent: 68 100% 40%;  /* #e6b450 */
+    --accent-foreground: 220 29% 6%;  /* #ffffff */
+    --destructive: 0 65% 65%;  /* #f07178 */
+    --destructive-foreground: 0 0% 100%;  /* #ffffff */
+    --border: 223 9% 25%;  /* #363c49 */
+    --input: 223 9% 25%;  /* #363c49 */
+    --ring: 39 100% 61%;  /* #ffb454 */
+
+    /* Chart colors from Ayu Dark */
+    --chart-1: 210 100% 65%;  /* #59c2ff */
+    --chart-2: 170 55% 68%;  /* #95e6cb */
+    --chart-3: 39 100% 61%;  /* #ffb454 */
+    --chart-4: 280 100% 70%;  /* #d2a6ff */
+    --chart-5: 24 89% 68%;  /* #f29668 */
   }
 }
 
 @layer base {
   * {
-    @apply border-fd-border;
+    @apply border-border;
   }
   body {
-    @apply bg-fd-background text-fd-foreground;
+    @apply bg-background text-foreground;
   }
 }
