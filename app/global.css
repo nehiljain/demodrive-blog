@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme */
+    --fd-background: 220 29% 94%;
+    --fd-foreground: 220 4% 38%;
+    
+    --fd-primary: 142 100% 35%;
+    --fd-primary-foreground: 0 0% 100%;
+    
+    --fd-secondary: 199 73% 55%;
+    --fd-secondary-foreground: 0 0% 100%;
+    
+    --fd-muted: 220 7% 83%;
+    --fd-muted-foreground: 220 4% 48%;
+    
+    --fd-accent: 34 100% 66%;
+    --fd-accent-foreground: 0 0% 100%;
+    
+    --fd-destructive: 0 65% 65%;
+    --fd-destructive-foreground: 0 0% 100%;
+    
+    --fd-border: 220 7% 83%;
+    --fd-input: 220 7% 83%;
+    --fd-ring: 199 73% 55%;
+    
+    --fd-radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme */
+    --fd-background: 220 27% 9%;
+    --fd-foreground: 210 17% 98%;
+    
+    --fd-primary: 84 54% 49%;
+    --fd-primary-foreground: 0 0% 100%;
+    
+    --fd-secondary: 223 27% 10%;
+    --fd-secondary-foreground: 0 0% 100%;
+    
+    --fd-muted: 223 9% 25%;
+    --fd-muted-foreground: 220 8% 71%;
+    
+    --fd-accent: 68 100% 40%;
+    --fd-accent-foreground: 220 29% 6%;
+    
+    --fd-destructive: 0 65% 65%;
+    --fd-destructive-foreground: 0 0% 100%;
+    
+    --fd-border: 223 9% 25%;
+    --fd-input: 223 9% 25%;
+    --fd-ring: 39 100% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-fd-border;
+  }
+  body {
+    @apply bg-fd-background text-fd-foreground;
+  }
+}
