@@ -1,5 +1,5 @@
 import { toRuntime, toRuntimeAsync } from "fumadocs-mdx"
-import * as docs_0 from "../content/docs/index.mdx?collection=docs&hash=4f3bc6e48351eef47611191451d86bf2ebc0c4238119c3a0c8870a549ef72ca3"
-import * as docs_1 from "../content/docs/test.mdx?collection=docs&hash=4f3bc6e48351eef47611191451d86bf2ebc0c4238119c3a0c8870a549ef72ca3"
-export const docs = [toRuntime("doc", docs_0, {"path":"index.mdx","absolutePath":"/Users/nehiljain/code/demodrive-blog/content/docs/index.mdx"}), toRuntime("doc", docs_1, {"path":"test.mdx","absolutePath":"/Users/nehiljain/code/demodrive-blog/content/docs/test.mdx"})];
-export const meta = [];
+import * as blogPosts_0 from "../content/blog/hello-world.mdx?collection=blogPosts&hash=20fa8794bb30d6cd5b56de49cf6df245724e4f272dceea5521769036abd481b1"
+import * as blogPosts_1 from "../content/blog/post-2.mdx?collection=blogPosts&hash=20fa8794bb30d6cd5b56de49cf6df245724e4f272dceea5521769036abd481b1"
+import * as blogPosts_2 from "../content/blog/post-3.mdx?collection=blogPosts&hash=20fa8794bb30d6cd5b56de49cf6df245724e4f272dceea5521769036abd481b1"
+export const blogPosts = [toRuntime("doc", blogPosts_0, {"path":"hello-world.mdx","absolutePath":"/Users/nehiljain/code/design-working-blog/content/blog/hello-world.mdx"}), toRuntime("doc", blogPosts_1, {"path":"post-2.mdx","absolutePath":"/Users/nehiljain/code/design-working-blog/content/blog/post-2.mdx"}), toRuntime("doc", blogPosts_2, {"path":"post-3.mdx","absolutePath":"/Users/nehiljain/code/design-working-blog/content/blog/post-3.mdx"})];
