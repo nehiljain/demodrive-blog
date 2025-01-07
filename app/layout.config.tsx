@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { Navbar } from '@/components/layout/navbar';
 
 /**
  * Shared layout configurations
@@ -9,16 +10,6 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: 'My Blog',
-    links: [
-      {
-        text: 'Home',
-        url: '/',
-      },
-      {
-        text: 'About',
-        url: '/about',
-      },
-    ],
+    component: <Navbar />,
   },
 };

@@ -11,7 +11,7 @@ const inter = Inter({
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.className} dark`} suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col bg-fd-background">
+      <body className="min-h-screen bg-fd-background text-fd-foreground">
         <RootProvider>
           <main className="flex-grow">{children}</main>
           <Footer />

@@ -14,59 +14,35 @@ export default {
   presets: [
     createPreset({
       // Using custom colors instead of preset
-      cssPrefix: '',
+      cssPrefix: 'fd',
     }),
   ],
-    plugins: [require("tailwindcss-animate")],
-    theme: {
-    	extend: {
-    		borderRadius: {
-    			lg: 'var(--radius)',
-    			md: 'calc(var(--radius) - 2px)',
-    			sm: 'calc(var(--radius) - 4px)'
-    		},
-    		colors: {
-    			background: 'hsl(var(--background))',
-    			foreground: 'hsl(var(--foreground))',
-    			card: {
-    				DEFAULT: 'hsl(var(--card))',
-    				foreground: 'hsl(var(--card-foreground))'
-    			},
-    			popover: {
-    				DEFAULT: 'hsl(var(--popover))',
-    				foreground: 'hsl(var(--popover-foreground))'
-    			},
-    			primary: {
-    				DEFAULT: 'hsl(var(--primary))',
-    				foreground: 'hsl(var(--primary-foreground))'
-    			},
-    			secondary: {
-    				DEFAULT: 'hsl(var(--secondary))',
-    				foreground: 'hsl(var(--secondary-foreground))'
-    			},
-    			muted: {
-    				DEFAULT: 'hsl(var(--muted))',
-    				foreground: 'hsl(var(--muted-foreground))'
-    			},
-    			accent: {
-    				DEFAULT: 'hsl(var(--accent))',
-    				foreground: 'hsl(var(--accent-foreground))'
-    			},
-    			destructive: {
-    				DEFAULT: 'hsl(var(--destructive))',
-    				foreground: 'hsl(var(--destructive-foreground))'
-    			},
-    			border: 'hsl(var(--border))',
-    			input: 'hsl(var(--input))',
-    			ring: 'hsl(var(--ring))',
-    			chart: {
-    				'1': 'hsl(var(--chart-1))',
-    				'2': 'hsl(var(--chart-2))',
-    				'3': 'hsl(var(--chart-3))',
-    				'4': 'hsl(var(--chart-4))',
-    				'5': 'hsl(var(--chart-5))'
-    			}
-    		}
-    	}
-    }
+  theme: {
+    extend: {
+      colors: {
+        'fd-background': 'hsl(220 27% 9%)',  /* #0b0e14 */
+        'fd-foreground': 'hsl(210 17% 98%)',  /* #f5f7fa */
+        'fd-card': 'hsl(222 24% 11%)',  /* #141821 */
+        'fd-card-foreground': 'hsl(34 5% 73%)',  /* #bfbdb6 */
+        'fd-popover': 'hsl(222 24% 11%)',  /* #141821 */
+        'fd-popover-foreground': 'hsl(34 5% 73%)',  /* #bfbdb6 */
+        'fd-primary': 'hsl(84 54% 49%)',  /* #aad94c */
+        'fd-primary-foreground': 'hsl(0 0% 100%)',  /* #ffffff */
+        'fd-secondary': 'hsl(223 27% 10%)',  /* #131721 */
+        'fd-secondary-foreground': 'hsl(0 0% 100%)',  /* #ffffff */
+        'fd-muted': 'hsl(223 9% 25%)',  /* #acb6bf8c */
+        'fd-muted-foreground': 'hsl(220 8% 71%)',  /* #acb6bf */
+        'fd-accent': 'hsl(68 100% 40%)',  /* #e6b450 */
+        'fd-accent-foreground': 'hsl(220 29% 6%)',  /* #ffffff */
+        'fd-destructive': 'hsl(0 65% 65%)',  /* #f07178 */
+        'fd-destructive-foreground': 'hsl(0 0% 100%)',  /* #ffffff */
+        'fd-border': 'hsl(223 9% 25%)',  /* #363c49 */
+        'fd-input': 'hsl(223 9% 25%)',  /* #363c49 */
+        'fd-ring': 'hsl(39 100% 61%)',  /* #ffb454 */
+      },
+    },
+  },
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 };

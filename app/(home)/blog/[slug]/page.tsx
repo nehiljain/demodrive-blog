@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { blog } from '@/lib/source';
+// import { YouTubeVideo } from '@/components/react/YouTubeVideo';
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
@@ -24,6 +25,9 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
+
+  console.log('Slug:', params.slug);
+  console.log('Page data:', page);
 
   if (!page) notFound();
   const Mdx = page.data.body;
@@ -46,9 +50,12 @@ export default async function Page(props: {
         <p className="mb-4 text-fd-muted-foreground">{page.data.description}</p>
       </div>
       <article className="container flex flex-col px-4">
-        <div className="prose min-w-0">
+        <div className="prose prose-invert min-w-0 max-w-none">
           <InlineTOC items={page.data.toc} />
-          <Mdx components={defaultMdxComponents} />
+          <Mdx components={{
+            ...defaultMdxComponents,
+            YouTubeVideo: (props) => <YouTubeVideo {...props} />
+          }} />
         </div>
         <div className="flex flex-col gap-4 text-sm">
           <div>
