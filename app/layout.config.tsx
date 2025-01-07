@@ -9,16 +9,17 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: 'My Blog',
-    links: [
-      {
-        text: 'Home',
-        url: '/',
-      },
-      {
-        text: 'About',
-        url: '/about',
-      },
-    ],
+    title: 'DemoDrive Blog',
+    
   },
+  links: [
+    {
+      text: 'Home',
+      url: '/',
+    },
+    {
+      text: 'About',
+      url: '/about',
+    },
+  ],
 };

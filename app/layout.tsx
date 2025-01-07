@@ -12,7 +12,14 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.className} dark`} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col bg-fd-background">
-        <RootProvider>
+        <RootProvider
+          search={{
+            enabled: false,
+          }}
+          theme={{
+            enabled: false,
+          }}
+        >
           <main className="flex-grow">{children}</main>
           <Footer />
         </RootProvider>
