@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { blog } from '@/lib/source';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 // import { YouTubeVideo } from '@/components/react/YouTubeVideo';
 
 export async function generateMetadata(props: {
@@ -33,44 +35,72 @@ export default async function Page(props: {
   const Mdx = page.data.body;
 
   return (
-    <>
-      <div className="container py-4 px-4">
-        {page.data.cover_image && (
-          <div className="relative mb-8 h-[720px] w-full overflow-hidden rounded-lg">
-            <Image
-              src={page.data.cover_image}
-              alt={`Cover image for ${page.data.title}`}
-              fill
-              className="object-cover"
-              priority
+    <div className="container max-w-4xl mx-auto px-4 py-8">
+      {/* Article Header */}
+      <div className="space-y-4 mb-8">
+        {/* Reading time and date */}
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <time dateTime={page.data.date}>
+            {new Date(page.data.date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            })}
+          </time>
+          <span>•</span>
+          <span>{page.data.readingTime || '3 min read'}</span>
+        </div>
+
+        {/* Title */}
+        <h1 className="text-4xl font-bold tracking-tight">{page.data.title}</h1>
+        
+        {/* Description */}
+        <p className="text-xl text-muted-foreground leading-relaxed">
+          {page.data.description}
+        </p>
+
+        {/* Author info */}
+        <div className="flex items-center gap-3 pt-4">
+          <Avatar className="h-12 w-12">
+            <AvatarImage 
+              src={page.data.author_image || '/default-avatar.png'} 
+              alt={page.data.author} 
             />
+            <AvatarFallback>
+              {page.data.author?.split(' ').map(n => n[0]).join('')}
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <div className="font-medium">{page.data.author}</div>
+            <div className="text-sm text-muted-foreground">
+              {page.data.author_title || 'Author'}
+            </div>
           </div>
-        )}
-        <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
-        <p className="mb-4 text-fd-muted-foreground">{page.data.description}</p>
+        </div>
       </div>
-      <article className="container flex flex-col px-4">
-        <div className="prose prose-invert min-w-0 max-w-none">
-          <InlineTOC items={page.data.toc} />
-          <Mdx components={{
-            ...defaultMdxComponents,
-            YouTubeVideo: (props) => <YouTubeVideo {...props} />
-          }} />
+
+      {/* Cover Image */}
+      {page.data.cover_image && (
+        <div className="relative mb-10 h-[400px] w-full overflow-hidden rounded-lg">
+          <Image
+            src={page.data.cover_image}
+            alt={`Cover image for ${page.data.title}`}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
-        <div className="flex flex-col gap-4 text-sm">
-          <div>
-            <p className="mb-1 text-fd-muted-foreground">Written by</p>
-            <p className="font-medium">{page.data.author}</p>
-          </div>
-          <div>
-            <p className="mb-1 text-sm text-fd-muted-foreground">At</p>
-            <p className="font-medium">
-              {new Date(page.data.date).toDateString()}
-            </p>
-          </div>
-        </div>
+      )}
+
+      {/* Article Content */}
+      <article className="prose prose-invert max-w-none">
+        <InlineTOC items={page.data.toc} />
+        <Mdx components={{
+          ...defaultMdxComponents,
+          YouTubeVideo: (props) => <YouTubeVideo {...props} />
+        }} />
       </article>
-    </>
+    </div>
   );
 }
 

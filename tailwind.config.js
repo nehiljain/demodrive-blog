@@ -40,6 +40,20 @@ export default {
         'fd-input': 'hsl(223 9% 25%)',  /* #363c49 */
         'fd-ring': 'hsl(39 100% 61%)',  /* #ffb454 */
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: 'inherit',
+            a: {
+              color: 'inherit',
+              textDecoration: 'none',
+              fontWeight: '500',
+            },
+            // Add more typography customizations as needed
+          },
+        },
+      },
     },
   },
   plugins: [
