@@ -9,18 +9,15 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-5xl font-bold mb-6">Welcome to My Blog</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+      <section className="container mx-auto px-4 pt-14 pb-4 text-center">
+        <h1 className="text-3xl font-bold mb-6">Demodrive AI Blog</h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-2">
           Insights on Content Analysis, Tools and AI in Documentation and Technical Content Creation
-        </p>
-        <p className="text-muted-foreground">
-          Want to write a guest article? Email us at founders@demodrive.tech
         </p>
       </section>
 
       {/* Featured Posts */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-4">
         <div className={`grid gap-8 place-items-center ${
           posts.length === 1 ? 'max-w-md mx-auto' :
           posts.length === 2 ? 'md:grid-cols-2 max-w-3xl mx-auto' :
@@ -34,7 +31,7 @@ export default function HomePage() {
             >
               <Card className="h-full">
                 {post.data.cover_image && (
-                  <div className="aspect-video relative overflow-hidden rounded-t-xl">
+                <div className="aspect-video relative overflow-hidden rounded-t-xl">
                     <Image
                       src={post.data.cover_image}
                       alt={post.data.title}
