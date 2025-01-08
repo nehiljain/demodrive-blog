@@ -1,0 +1,104 @@
+---
+title: "Want to Write Better Docs? Here’s What GenAI Can Do for You"
+description: "We share a technique to get your docs ready for LLMs."
+date: "2025-01-08T14:00:00.000Z"
+author: "Selvam Palanimalai"
+author_image: "/images/author/nehiljain_profile_pic.jpg"
+readingTime: "5"
+cover_image: "/images/blog/cover_image_level_up_your_docs_for_ai.png"
+tags: [ "ai"]
+---
+import Image from "next/image";
+
+# Level UP your Docs for AI Future/(LLMs?)
+
+
+LLMs are great at very many things. As you know, the quality of context for the LLMs can change the output quality drastically. This has given rise to communities driven collections of the best performing prompts like [LLM-Prompt-Library](https://github.com/abilzerian/LLM-Prompt-Library) and [cursor.directory](https://cursor.directory/). They are collectively trying to find and improve best prompts for the task at hand.
+
+For user of ChatGPT, the context for LLM is simply just the user prompt. That is not the case with more sophisticated tools like AI Code editors (Github Copilot, Cursor, Codeium). This especially [becomes a problem](https://www.cursor.com/blog/problems-2024#optimal-context) with code generation task as IDEs have to filter from millions of code lines, log lines, library documentation, open files in the editor, previous user prompts.
+
+We will cover a new approach adopted by the industry to improve your docs search ability and usability in AI Code editors. 
+
+## AI Code Editors - Code Generation?
+
+Github Copilot brought AI Code editing to masses in 2021. Since then there has been steady progress in features and userbase. Cursor is leading the pack at the moment with both inference quality and UX.
+
+Code generation has emerged as a clear segment where LLMs have made significant boost in productivity. Popular open-source projects are increasingly generating AI code. 
+
+
+<Image
+  src="/images/blog/level_up_your_docs_for_ai_code_ide_popularity.png"
+  alt="Aider release chart showing power of AI writing its own code"
+  width={800}
+  height={600}
+  className="rounded-xl w-full h-full object-cover"
+/>
+
+
+For code-generation tasks, additional documentation in the context, can significantly increase the quality of response. This has been talked about by AI IDE developers [over](https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/#how-github-copilot-understands-your-code) and [over](https://www.cursor.com/blog/problems-2024#optimal-context). 
+
+To name a few other concerns in this space: 
+
+- UX on how to suggest code edits
+- Predicting next edits
+- Higher quality output while keeping latency low
+
+It’s an area of active research and with incredible people working on it. Optimal context is up there as a top priority.
+
+## Optimal Context
+
+LLMs (with tool calling) are capable of scraping your website and generating markdown. However, the process is still error prone. As a docs owner, you should have the control to generate clean plaintext files to make it easier for LLMs can get to best context.
+
+One might wonder, why not just use sitemap.xml? or robots.txt?
+
+Sitemap.xml is exclusively used for SEO. It has a restrictive list of metadata such as update frequency, priority and last modified for each link.  Similarly, robots.txt was created with an help search crawlers. 
+
+We could potentially add more content on top of these existing purpose built standards. Or built a new one. Which is what the team at [answer.ai](http://answer.ai) has done from [standard - llmstxt](https://llmstxt.org/) - to make developer docs consumable by LLMs. Its akin to Web 2.0s, sitemap.xml and robots.txt. 
+
+According to the authors of llmstxt standard, 
+
+> sitemap.xml is a list of all the indexable human-readable information available on a site. This isn’t a substitute for `llms.txt` since it:
+> 
+> - Often won’t have the LLM-readable versions of pages listed
+> - Doesn’t include URLs to external sites, even although they might be helpful to understand the information
+> - Will generally cover documents that in aggregate will be too large
+> to fit in an LLM context window, and will include a lot of information
+> that isn’t necessary to understand the site.
+
+It proposes the docs owner can expose certain plain text files for LLMs to consume, giving the owner more control. At a most basic level, we will create an index of all links in the website at llms.txt, a expanded version of all links + content at llms-full.txt. Also, each link will have markdown (.md) version of it.
+
+<Image
+  src="/images/blog/level_up_your_docs_for_ai_llm_text_action_flow.png"
+  alt="File structure for llmstxt"
+  width={800}
+  height={600}
+  className="rounded-xl w-full h-full object-cover"
+/>
+
+## How do you get started?
+
+A lot of companies have already started to adopt llmstxt standard - You can check them out in directories [here](https://directory.llmstxt.cloud/) and [here](https://llmstxt.site/). There are 112 companies listed at the time of writing. As of today, paid docs platforms have this feature but the open source tooling is getting left behind.
+
+Devtools companies/OSS projects still predominately use ReadtheDocs, MkDocs,Sphinx, Github pages, or Docusaurus. There are no features to generate these llm friendly files easily. So we built one - [llms-txt](https://github.com/demodrive-ai/llms-txt-actions) ! 
+
+Its a simple CLI tool also available as a Github Action that can help you generated all the necessary plaintext files to make your docs LLM friendly. Its open-source and MIT license, so go give it a try.
+
+Whether you use ReadtheDocs, MkDocs, or Sphinx, this action automates the generation of structured, consumable documentation files—aligning with LLM indexing requirements.
+
+To integrate llms-txt into your project, add the following step to your GitHub Actions workflow:
+
+steps:
+
+```json
+name: make docs LLM friendly
+uses: demodrive-ai/llms-txt-action@v1
+```
+
+Alternatively, you can install it locally for CLI use:
+
+```json
+pip install llms-txt-action
+llms-txt --docs-dir site/
+```
+
+Please reach out to us if you have any questions by opening a Github Issue or a Pull Request at https://github.com/demodrive-ai/llms-txt-action.
