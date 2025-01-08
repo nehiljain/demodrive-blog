@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { blog } from '@/lib/source';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import Image from 'next/image';
 
 export default function HomePage() {
   const posts = blog.getPages();
@@ -34,10 +35,12 @@ export default function HomePage() {
               <Card className="h-full">
                 {post.data.cover_image && (
                   <div className="aspect-video relative overflow-hidden rounded-t-xl">
-                    <img
+                    <Image
                       src={post.data.cover_image}
                       alt={post.data.title}
-                      className="object-cover w-full h-full"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 )}
