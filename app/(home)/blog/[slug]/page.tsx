@@ -81,7 +81,7 @@ export default async function Page(props: { params: Promise<{ slug: string }> })
 
       {/* Cover Image */}
       {page.data.cover_image && (
-        <div className="relative h-[300px] w-full mb-6 rounded-lg overflow-hidden">
+        <div className="relative h-[350px] mb-6 rounded-lg overflow-hidden">
           <Image
             src={page.data.cover_image}
             alt={`Cover image for ${page.data.title}`}
