@@ -1,32 +1,27 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { blog } from '@/lib/source';
+import { notFound } from "next/navigation"
+import Image from "next/image"
+import { InlineTOC } from "fumadocs-ui/components/inline-toc"
+import defaultMdxComponents from "fumadocs-ui/mdx"
+import { blog } from "@/lib/source"
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string }>;
-}) {
-  const params = await props.params;
-  const page = blog.getPage([params.slug]);
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params
+  const page = blog.getPage([params.slug])
 
-  if (!page) notFound();
+  if (!page) notFound()
 
   return {
     title: page.data.title,
     description: page.data.description,
-  };
+  }
 }
 
-export default async function Page(props: {
-  params: Promise<{ slug: string }>;
-}) {
-  const params = await props.params;
-  const page = blog.getPage([params.slug]);
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params
+  const page = blog.getPage([params.slug])
 
-  if (!page) notFound();
-  const Mdx = page.data.body;
+  if (!page) notFound()
+  const Mdx = page.data.body
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
@@ -36,10 +31,10 @@ export default async function Page(props: {
         <div className="text-gray-600 text-sm mb-2">
           {page.data.date && (
             <time dateTime={page.data.date}>
-              {new Date(page.data.date).toLocaleDateString('en-US', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
+              {new Date(page.data.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
               })}
             </time>
           )}
@@ -50,7 +45,7 @@ export default async function Page(props: {
 
         {/* Title */}
         <h1 className="text-3xl font-bold mb-3">{page.data.title}</h1>
-        
+
         {/* Description */}
         {page.data.description && (
           <p className="text-gray-600 text-base mb-4">{page.data.description}</p>
@@ -70,9 +65,7 @@ export default async function Page(props: {
               ) : (
                 // Fallback avatar if no image is provided
                 <div className="w-full h-full bg-gray-200 rounded-full flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">
-                    {page.data.author.charAt(0)}
-                  </span>
+                  <span className="text-gray-500 text-sm">{page.data.author.charAt(0)}</span>
                 </div>
               )}
             </div>
@@ -105,11 +98,11 @@ export default async function Page(props: {
         <Mdx components={defaultMdxComponents} />
       </article>
     </div>
-  );
+  )
 }
 
 export function generateStaticParams(): { slug: string }[] {
   return blog.getPages().map((page) => ({
     slug: page.slugs[0],
-  }));
+  }))
 }
