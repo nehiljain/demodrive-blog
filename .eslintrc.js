@@ -11,5 +11,6 @@ module.exports = {
   rules: {
     // Customize rules as needed
     "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": "error",
   },
 }
