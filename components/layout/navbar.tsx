@@ -13,18 +13,12 @@ const navigation = [
 ]
 
 export function Navbar() {
-  useInitCal();
+  useInitCal()
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between p-4 px-6 rounded-full border border-fd-muted bg-fd-background/80 backdrop-blur-sm shadow-lg w-[90%] max-w-6xl">
       <Link href="https://demodrive.tech" className="flex items-center space-x-2">
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          width={32}
-          height={32}
-          className="h-8 w-8"
-        />
+        <Image src="/logo.svg" alt="Logo" width={32} height={32} className="h-8 w-8" />
       </Link>
 
       {/* Desktop Navigation */}
@@ -68,4 +62,4 @@ export function Navbar() {
       </div>
     </nav>
   )
-} 
+}
