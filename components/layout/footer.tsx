@@ -1,24 +1,24 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
 
 const Footer = () => {
   const resourceLinks = [
     {
       label: "Support",
       href: "mailto:founder@demodrive.tech",
-      isExternal: true
+      isExternal: true,
     },
     {
       label: "Terms of Service",
       href: "https://app.demodrive.tech/terms",
-      isExternal: true
+      isExternal: true,
     },
     {
       label: "Privacy Policy",
       href: "https://app.demodrive.tech/privacy",
-      isExternal: true
+      isExternal: true,
     },
-  ];
+  ]
 
   return (
     <footer className="bg-background">
@@ -28,12 +28,7 @@ const Footer = () => {
             {/* Logo and Copyright Section */}
             <div className="space-y-6">
               <Link href="/" className="flex items-center space-x-2">
-                <Image
-                  src="/logo.svg"
-                  alt="DemoDrive Logo"
-                  width={32}
-                  height={32}
-                />
+                <Image src="/logo.svg" alt="DemoDrive Logo" width={32} height={32} />
                 <span className="font-bold text-xl">DemoDrive</span>
               </Link>
               <p className="text-sm text-muted-foreground">
@@ -51,8 +46,8 @@ const Footer = () => {
                       <a
                         href={link.href}
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                        target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                        rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                        target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                        rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                       >
                         {link.label}
                       </a>
@@ -72,7 +67,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer; 
+export default Footer
