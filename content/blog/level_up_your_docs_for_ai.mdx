@@ -1,9 +1,9 @@
 ---
 title: "Want to Write Better Docs? Here’s What GenAI Can Do for You"
 description: "We share a technique to get your docs ready for LLMs."
-date: "2025-01-08T14:00:00.000Z"
+date: "2025-01-09T14:00:00.000Z"
 author: "Selvam Palanimalai"
-author_image: "/images/author/nehiljain_profile_pic.jpg"
+author_image: "/images/author/selvampalanimalai_profile_pic.jpg"
 readingTime: "5"
 cover_image: "/images/blog/cover_image_level_up_your_docs_for_ai.png"
 tags: [ "ai"]
@@ -17,13 +17,13 @@ LLMs are great at very many things. As you know, the quality of context for the 
 
 For user of ChatGPT, the context for LLM is simply just the user prompt. That is not the case with more sophisticated tools like AI Code editors (Github Copilot, Cursor, Codeium). This especially [becomes a problem](https://www.cursor.com/blog/problems-2024#optimal-context) with code generation task as IDEs have to filter from millions of code lines, log lines, library documentation, open files in the editor, previous user prompts.
 
-We will cover a new approach adopted by the industry to improve your docs search ability and usability in AI Code editors. 
+We will cover a new approach adopted by the industry to improve your docs search ability and usability in AI Code editors.
 
 ## AI Code Editors - Code Generation?
 
 Github Copilot brought AI Code editing to masses in 2021. Since then there has been steady progress in features and userbase. Cursor is leading the pack at the moment with both inference quality and UX.
 
-Code generation has emerged as a clear segment where LLMs have made significant boost in productivity. Popular open-source projects are increasingly generating AI code. 
+Code generation has emerged as a clear segment where LLMs have made significant boost in productivity. Popular open-source projects are increasingly generating AI code.
 
 
 <Image
@@ -35,9 +35,9 @@ Code generation has emerged as a clear segment where LLMs have made significant 
 />
 
 
-For code-generation tasks, additional documentation in the context, can significantly increase the quality of response. This has been talked about by AI IDE developers [over](https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/#how-github-copilot-understands-your-code) and [over](https://www.cursor.com/blog/problems-2024#optimal-context). 
+For code-generation tasks, additional documentation in the context, can significantly increase the quality of response. This has been talked about by AI IDE developers [over](https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/#how-github-copilot-understands-your-code) and [over](https://www.cursor.com/blog/problems-2024#optimal-context).
 
-To name a few other concerns in this space: 
+To name a few other concerns in this space:
 
 - UX on how to suggest code edits
 - Predicting next edits
@@ -51,14 +51,14 @@ LLMs (with tool calling) are capable of scraping your website and generating mar
 
 One might wonder, why not just use sitemap.xml? or robots.txt?
 
-Sitemap.xml is exclusively used for SEO. It has a restrictive list of metadata such as update frequency, priority and last modified for each link.  Similarly, robots.txt was created with an help search crawlers. 
+Sitemap.xml is exclusively used for SEO. It has a restrictive list of metadata such as update frequency, priority and last modified for each link.  Similarly, robots.txt was created with an help search crawlers.
 
-We could potentially add more content on top of these existing purpose built standards. Or built a new one. Which is what the team at [answer.ai](http://answer.ai) has done from [standard - llmstxt](https://llmstxt.org/) - to make developer docs consumable by LLMs. Its akin to Web 2.0s, sitemap.xml and robots.txt. 
+We could potentially add more content on top of these existing purpose built standards. Or built a new one. Which is what the team at [answer.ai](http://answer.ai) has done from [standard - llmstxt](https://llmstxt.org/) - to make developer docs consumable by LLMs. Its akin to Web 2.0s, sitemap.xml and robots.txt.
 
-According to the authors of llmstxt standard, 
+According to the authors of llmstxt standard,
 
 > sitemap.xml is a list of all the indexable human-readable information available on a site. This isn’t a substitute for `llms.txt` since it:
-> 
+>
 > - Often won’t have the LLM-readable versions of pages listed
 > - Doesn’t include URLs to external sites, even although they might be helpful to understand the information
 > - Will generally cover documents that in aggregate will be too large
@@ -79,7 +79,7 @@ It proposes the docs owner can expose certain plain text files for LLMs to consu
 
 A lot of companies have already started to adopt llmstxt standard - You can check them out in directories [here](https://directory.llmstxt.cloud/) and [here](https://llmstxt.site/). There are 112 companies listed at the time of writing. As of today, paid docs platforms have this feature but the open source tooling is getting left behind.
 
-Devtools companies/OSS projects still predominately use ReadtheDocs, MkDocs,Sphinx, Github pages, or Docusaurus. There are no features to generate these llm friendly files easily. So we built one - [llms-txt](https://github.com/demodrive-ai/llms-txt-actions) ! 
+Devtools companies/OSS projects still predominately use ReadtheDocs, MkDocs,Sphinx, Github pages, or Docusaurus. There are no features to generate these llm friendly files easily. So we built one - [llms-txt](https://github.com/demodrive-ai/llms-txt-actions) !
 
 Its a simple CLI tool also available as a Github Action that can help you generated all the necessary plaintext files to make your docs LLM friendly. Its open-source and MIT license, so go give it a try.
 
